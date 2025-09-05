@@ -36,8 +36,8 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
 @Validated
-@Tag(name = "Default", description = "the Default API")
-public interface DefaultApi {
+@Tag(name = "UserDetails", description = "the UserDetails API")
+public interface UserDetailsApi {
 
     /**
      * POST /users : Register a new user
@@ -49,6 +49,7 @@ public interface DefaultApi {
     @Operation(
         operationId = "registerUser",
         summary = "Register a new user",
+        tags = { "UserDetails" },
         responses = {
             @ApiResponse(responseCode = "201", description = "User created successfully", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = UserRegistrationResponse.class))

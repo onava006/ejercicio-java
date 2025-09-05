@@ -2,10 +2,13 @@ openapi: 3.0.3
 info:
   title: User Registration API
   version: 1.0.0
+  x-api-name: Users
 
 paths:
   /users:
     post:
+      tags:
+        - UserDetails
       summary: Register a new user
       operationId: registerUser
       requestBody:
