@@ -27,8 +27,8 @@ com:
   smartjob:
     ejerciciojava:
       exception:
-        001: "El email ya existia para otro usuario"
-        002: "El formato de email es incorrecto"
+        error001: "El email ya existia para otro usuario"
+        error002: "El formato de email es incorrecto"
       email:
         validation:
           regular-expression: "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$"

@@ -6,5 +6,7 @@ import com.smartjob.ejerciciojava.domain.model.User;
 
 public interface UserRepository {
 
-    Optional<User> saveUser(User user);
+    User saveUser(User user);
+
+    Optional<User> findByEmail(String email);
 }
