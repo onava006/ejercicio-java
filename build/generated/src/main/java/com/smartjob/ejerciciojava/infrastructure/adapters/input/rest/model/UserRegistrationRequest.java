@@ -78,7 +78,7 @@ public class UserRegistrationRequest {
    * Get email
    * @return email
   */
-  @NotNull @jakarta.validation.constraints.Email
+  @NotNull 
   @Schema(name = "email", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("email")
   public String getEmail() {

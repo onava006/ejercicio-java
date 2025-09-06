@@ -1,12 +1,10 @@
 package com.smartjob.ejerciciojava.infrastructure.adapters.output;
 
-import com.smartjob.ejerciciojava.application.adapters.input.mapper.UserMapper;
 import com.smartjob.ejerciciojava.domain.model.Phone;
 import com.smartjob.ejerciciojava.domain.model.User;
 import com.smartjob.ejerciciojava.infrastructure.adapters.output.entities.PhoneEntity;
 import com.smartjob.ejerciciojava.infrastructure.adapters.output.entities.UserEntity;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,13 +29,11 @@ public class UserEntityMapper {
             user.setPhones(phones);
         }
 
-        // Mapear fechas
         user.setCreationDate(entity.getCreatedAt());
         user.setLastModificationDate(entity.getModifiedAt());
         user.setLastLogin(entity.getLastLogin());
 
 
-        // Asumimos que si está creado, está activo
         user.setActive(true);
 
         return user;

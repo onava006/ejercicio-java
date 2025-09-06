@@ -6,6 +6,5 @@ import java.util.Optional;
 
 public interface UserPhoneRepository {
 
-
     Optional<Phone> savePhone(Phone phone);
 }
