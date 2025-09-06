@@ -5,13 +5,27 @@ import java.util.List;
 
 public class User {
 
+    private Long id;
     private String name;
     private String email;
     private String password;
     private List<Phone> phones;
     private Date creationDate;
     private Date lastModificationDate;
+
+
+
+    private Date lastLogin;
     boolean isActive;
+
+
+public Long getId() {
+    return id;
+}
+
+public void setId(Long id) {
+    this.id = id;
+}
 
     public String getName() {
         return name;
@@ -67,5 +81,12 @@ public class User {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+    public Date getLastLogin() {
+        return lastLogin;
+    }
+
+    public void setLastLogin(Date lastLogin) {
+        this.lastLogin = lastLogin;
     }
 }

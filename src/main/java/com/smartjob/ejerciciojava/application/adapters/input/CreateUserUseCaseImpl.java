@@ -1,7 +1,6 @@
 package com.smartjob.ejerciciojava.application.adapters.input;
 
 import com.smartjob.ejerciciojava.application.adapters.input.mapper.UserMapper;
-import com.smartjob.ejerciciojava.application.dto.UserDto;
 import com.smartjob.ejerciciojava.application.ports.input.CreateUserUseCase;
 import com.smartjob.ejerciciojava.application.ports.output.TokenProvider;
 import com.smartjob.ejerciciojava.application.utils.UserEmailValidator;
@@ -10,6 +9,7 @@ import com.smartjob.ejerciciojava.domain.model.User;
 import com.smartjob.ejerciciojava.domain.ports.input.UserService;
 import com.smartjob.ejerciciojava.domain.ports.output.UserRepository;
 import com.smartjob.ejerciciojava.infrastructure.adapters.input.rest.model.UserRegistrationRequest;
+import com.smartjob.ejerciciojava.infrastructure.adapters.input.rest.model.UserRegistrationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -38,7 +38,7 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
     }
 
     @Override
-    public UserDto register(UserRegistrationRequest userRegistration) {
+    public UserRegistrationResponse register(UserRegistrationRequest userRegistration) {
 
         String userEmail = userRegistration.getEmail();
         emailValidator.validateEmail(userEmail);
@@ -47,9 +47,9 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
         if(!userEmailIsAvailable) throw new InvalidEmailException(emailAlreadyUsedError);
         User newUser = UserMapper.toUser(userRegistration);
         userService.configureNewUser(newUser);
-        String tokenizedPassword = tokenProvider.createJwt(newUser.getPassword(),newUser.getName(),jwtExpirationTime );
+        String tokenizedPassword = tokenProvider.createJwt(newUser.getPassword(), newUser.getName(), jwtExpirationTime);
         newUser.setPassword(tokenizedPassword);
-        return UserMapper.toUserDto(userRepository.saveUser(newUser));
+        return UserMapper.toResponse(userRepository.saveUser(newUser));
     }
 
 

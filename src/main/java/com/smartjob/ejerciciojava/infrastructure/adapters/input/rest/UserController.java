@@ -24,9 +24,8 @@ public class UserController implements UserDetailsApi {
 
     @Override
     public ResponseEntity<UserRegistrationResponse> registerUser(UserRegistrationRequest userRegistrationRequest) {
-        UserDto userCreationResponse = createUserUseCase.register(userRegistrationRequest);
-        UserRegistrationResponse userRegistrationResponse = new UserRegistrationResponse();
-       return new ResponseEntity<>(userRegistrationResponse, HttpStatus.OK);
+        UserRegistrationResponse userCreationResponse = createUserUseCase.register(userRegistrationRequest);
+       return new ResponseEntity<>(userCreationResponse, HttpStatus.OK);
 
     }
 }
