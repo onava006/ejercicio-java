@@ -1,4 +1,5 @@
 # Ejercicio Java - Arquitectura de servicio
+
 ![Descripción de la imagen](./simplified_diagram.png)
 
 
@@ -129,7 +130,7 @@ curl -X POST "http://localhost:8080/users" \
 
 ## 📋 Prerrequisitos
 
-- Java 11 o superior
+- Java 17 o superior
 - Gradle
 - curl (para pruebas desde terminal)
 - Sistema operativo: Linux, macOS o Windows con WSL
