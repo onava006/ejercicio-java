@@ -1,4 +1,4 @@
-package com.smartjob.ejerciciojava.infrastructure.adapters.input.rest;
+package com.smartjob.ejerciciojava.infrastructure.adapters.input.rest.exception;
 
 import com.smartjob.ejerciciojava.domain.exception.InvalidEmailException;
 import com.smartjob.ejerciciojava.domain.exception.UserNotFoundException;

@@ -12,20 +12,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User configureNewUser(User userRequest) {
+    public void configureNewUser(User userRequest) {
 
-        userRequest.setPassword("dummypass");
         userRequest.setActive(true);
         userRequest.setCreationDate(new Date(System.currentTimeMillis()));
         userRequest.setLastModificationDate(new Date(System.currentTimeMillis()));
-        return userRequest;
     }
 
     @Override
-    public User changeStatus(User userRequest) {
+    public void changeStatus(User userRequest) {
 
         userRequest.setLastModificationDate(new Date(System.currentTimeMillis()));
         userRequest.setActive(!userRequest.isActive());
-        return userRequest;
     }
 }

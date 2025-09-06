@@ -51,9 +51,9 @@ components:
         phones:
           type: array
           items:
-            $ref: '#/components/schemas/Phone'
+            $ref: '#/components/schemas/ContactPhone'
 
-    Phone:
+    ContactPhone:
       type: object
       required:
         - number
@@ -79,7 +79,7 @@ components:
         phones:
           type: array
           items:
-            $ref: '#/components/schemas/Phone'
+            $ref: '#/components/schemas/ContactPhone'
         created:
           type: string
           format: date-time

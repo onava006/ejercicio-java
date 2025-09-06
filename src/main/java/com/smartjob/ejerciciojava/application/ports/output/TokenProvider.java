@@ -1,6 +1,6 @@
 package com.smartjob.ejerciciojava.application.ports.output;
 
-public interface TokenGenerator {
+public interface TokenProvider {
 
     public String createJwt(String subject, String issuer, long expirationMillis);
 }

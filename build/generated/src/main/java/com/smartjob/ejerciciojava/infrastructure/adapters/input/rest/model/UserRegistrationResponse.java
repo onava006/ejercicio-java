@@ -4,7 +4,7 @@ import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.smartjob.ejerciciojava.infrastructure.adapters.input.rest.model.Phone;
+import com.smartjob.ejerciciojava.infrastructure.adapters.input.rest.model.ContactPhone;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,7 +35,7 @@ public class UserRegistrationResponse {
   private String email;
 
   @Valid
-  private List<@Valid Phone> phones;
+  private List<@Valid ContactPhone> phones;
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private LocalDateTime created;
@@ -110,12 +110,12 @@ public class UserRegistrationResponse {
     this.email = email;
   }
 
-  public UserRegistrationResponse phones(List<@Valid Phone> phones) {
+  public UserRegistrationResponse phones(List<@Valid ContactPhone> phones) {
     this.phones = phones;
     return this;
   }
 
-  public UserRegistrationResponse addPhonesItem(Phone phonesItem) {
+  public UserRegistrationResponse addPhonesItem(ContactPhone phonesItem) {
     if (this.phones == null) {
       this.phones = new ArrayList<>();
     }
@@ -130,11 +130,11 @@ public class UserRegistrationResponse {
   @Valid 
   @Schema(name = "phones", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("phones")
-  public List<@Valid Phone> getPhones() {
+  public List<@Valid ContactPhone> getPhones() {
     return phones;
   }
 
-  public void setPhones(List<@Valid Phone> phones) {
+  public void setPhones(List<@Valid ContactPhone> phones) {
     this.phones = phones;
   }
 

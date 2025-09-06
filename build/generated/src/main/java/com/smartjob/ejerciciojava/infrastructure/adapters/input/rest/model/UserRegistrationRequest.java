@@ -4,7 +4,7 @@ import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.smartjob.ejerciciojava.infrastructure.adapters.input.rest.model.Phone;
+import com.smartjob.ejerciciojava.infrastructure.adapters.input.rest.model.ContactPhone;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,7 +33,7 @@ public class UserRegistrationRequest {
   private String password;
 
   @Valid
-  private List<@Valid Phone> phones = new ArrayList<>();
+  private List<@Valid ContactPhone> phones = new ArrayList<>();
 
   public UserRegistrationRequest() {
     super();
@@ -42,7 +42,7 @@ public class UserRegistrationRequest {
   /**
    * Constructor with only required parameters
    */
-  public UserRegistrationRequest(String name, String email, String password, List<@Valid Phone> phones) {
+  public UserRegistrationRequest(String name, String email, String password, List<@Valid ContactPhone> phones) {
     this.name = name;
     this.email = email;
     this.password = password;
@@ -109,12 +109,12 @@ public class UserRegistrationRequest {
     this.password = password;
   }
 
-  public UserRegistrationRequest phones(List<@Valid Phone> phones) {
+  public UserRegistrationRequest phones(List<@Valid ContactPhone> phones) {
     this.phones = phones;
     return this;
   }
 
-  public UserRegistrationRequest addPhonesItem(Phone phonesItem) {
+  public UserRegistrationRequest addPhonesItem(ContactPhone phonesItem) {
     if (this.phones == null) {
       this.phones = new ArrayList<>();
     }
@@ -129,11 +129,11 @@ public class UserRegistrationRequest {
   @NotNull @Valid 
   @Schema(name = "phones", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("phones")
-  public List<@Valid Phone> getPhones() {
+  public List<@Valid ContactPhone> getPhones() {
     return phones;
   }
 
-  public void setPhones(List<@Valid Phone> phones) {
+  public void setPhones(List<@Valid ContactPhone> phones) {
     this.phones = phones;
   }
 

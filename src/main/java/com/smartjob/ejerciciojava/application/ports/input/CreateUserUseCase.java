@@ -6,6 +6,6 @@ import com.smartjob.ejerciciojava.infrastructure.adapters.input.rest.model.UserR
 
 public interface CreateUserUseCase  {
 
-        UserDto create(UserRegistrationRequest userRegistration);
+        UserDto register(UserRegistrationRequest userRegistration);
 
 }

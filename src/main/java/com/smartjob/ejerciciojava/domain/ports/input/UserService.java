@@ -6,7 +6,7 @@ import com.smartjob.ejerciciojava.infrastructure.adapters.input.rest.model.UserR
 
 public interface UserService {
 
-     User configureNewUser(User userRequest);
+     void configureNewUser(User userRequest);
 
-     User changeStatus(User userRequest);
+     void changeStatus(User userRequest);
 }

@@ -16,11 +16,11 @@ import java.util.*;
 import jakarta.annotation.Generated;
 
 /**
- * Phone
+ * ContactPhone
  */
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen")
-public class Phone {
+public class ContactPhone {
 
   private String number;
 
@@ -28,20 +28,20 @@ public class Phone {
 
   private String contrycode;
 
-  public Phone() {
+  public ContactPhone() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public Phone(String number, String citycode, String contrycode) {
+  public ContactPhone(String number, String citycode, String contrycode) {
     this.number = number;
     this.citycode = citycode;
     this.contrycode = contrycode;
   }
 
-  public Phone number(String number) {
+  public ContactPhone number(String number) {
     this.number = number;
     return this;
   }
@@ -61,7 +61,7 @@ public class Phone {
     this.number = number;
   }
 
-  public Phone citycode(String citycode) {
+  public ContactPhone citycode(String citycode) {
     this.citycode = citycode;
     return this;
   }
@@ -81,7 +81,7 @@ public class Phone {
     this.citycode = citycode;
   }
 
-  public Phone contrycode(String contrycode) {
+  public ContactPhone contrycode(String contrycode) {
     this.contrycode = contrycode;
     return this;
   }
@@ -109,10 +109,10 @@ public class Phone {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Phone phone = (Phone) o;
-    return Objects.equals(this.number, phone.number) &&
-        Objects.equals(this.citycode, phone.citycode) &&
-        Objects.equals(this.contrycode, phone.contrycode);
+    ContactPhone contactPhone = (ContactPhone) o;
+    return Objects.equals(this.number, contactPhone.number) &&
+        Objects.equals(this.citycode, contactPhone.citycode) &&
+        Objects.equals(this.contrycode, contactPhone.contrycode);
   }
 
   @Override
@@ -123,7 +123,7 @@ public class Phone {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Phone {\n");
+    sb.append("class ContactPhone {\n");
     sb.append("    number: ").append(toIndentedString(number)).append("\n");
     sb.append("    citycode: ").append(toIndentedString(citycode)).append("\n");
     sb.append("    contrycode: ").append(toIndentedString(contrycode)).append("\n");
