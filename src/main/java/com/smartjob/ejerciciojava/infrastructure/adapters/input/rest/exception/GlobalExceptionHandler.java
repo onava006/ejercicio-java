@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.HashMap;
 import java.util.Map;
- @NotNull @jakarta.validation.constraints.Email
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

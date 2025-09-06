@@ -1,0 +1,1 @@
+![Descripción de la imagen](./simplified_diagram.png)
