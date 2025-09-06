@@ -4,7 +4,7 @@ public class Phone {
 
     private String number;
     private String cityCode;
-    private String contryCode;
+    private String countryCode;
 
     public String getNumber() {
         return number;
@@ -23,10 +23,10 @@ public class Phone {
     }
 
     public String getCountryCode() {
-        return contryCode;
+        return countryCode;
     }
 
-    public void setCountryCode(String contryCode) {
-        this.contryCode = contryCode;
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
     }
 }

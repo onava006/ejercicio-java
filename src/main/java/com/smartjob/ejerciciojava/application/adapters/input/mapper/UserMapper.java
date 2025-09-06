@@ -71,7 +71,7 @@ public class UserMapper {
         Phone mapped = new Phone();
         mapped.setNumber(phone.getNumber());
         mapped.setCityCode(phone.getCitycode());
-        mapped.setCountryCode(phone.getContrycode());
+        mapped.setCountryCode(phone.getCountrycode());
         return mapped;
     }
 
@@ -82,7 +82,7 @@ public class UserMapper {
         ContactPhone mapped = new ContactPhone();
         mapped.setNumber(phone.getNumber());
         mapped.setCitycode(phone.getCityCode());
-        mapped.setContrycode(phone.getCountryCode());
+        mapped.setCountrycode(phone.getCountryCode());
         return mapped;
     }
 

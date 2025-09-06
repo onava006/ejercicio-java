@@ -57,13 +57,13 @@ components:
       required:
         - number
         - citycode
-        - contrycode
+        - countrycode
       properties:
         number:
           type: string
         citycode:
           type: string
-        contrycode:
+        countrycode:
           type: string
 
     UserRegistrationResponse:

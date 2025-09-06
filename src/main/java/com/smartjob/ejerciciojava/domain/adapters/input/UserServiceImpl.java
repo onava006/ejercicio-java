@@ -18,6 +18,7 @@ public class UserServiceImpl implements UserService {
         userRequest.setActive(true);
         userRequest.setCreationDate(LocalDateTime.now());
         userRequest.setLastModificationDate(LocalDateTime.now());
+        userRequest.setLastLogin(LocalDateTime.now());
     }
 
     @Override
