@@ -7,21 +7,28 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler({InvalidEmailException.class})
     public ResponseEntity<Object> handleInvalidEmail(InvalidEmailException exception) {
+        Map<String, String> body = new HashMap<>();
+        body.put("mensaje", exception.getMessage());
         return ResponseEntity
                 .status(HttpStatus.NOT_ACCEPTABLE)
-                .body(exception.getMessage());
+                .body(body);
     }
 
     @ExceptionHandler({UserNotFoundException.class})
     public ResponseEntity<Object> handleMiscorrectIdFormatException(UserNotFoundException exception) {
+        Map<String, String> body = new HashMap<>();
+        body.put("mensaje", exception.getMessage());
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
-                .body(exception.getMessage());
+                .body(body);
     }
 }
 
