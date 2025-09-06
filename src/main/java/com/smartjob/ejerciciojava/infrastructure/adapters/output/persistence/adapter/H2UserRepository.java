@@ -26,7 +26,10 @@ public class H2UserRepository implements UserRepository {
     }
 
     @Override
-    public Optional<User> findByEmail(String email) {
-        return Optional.empty();
+    public Boolean findByEmail(String email) {
+
+       Optional<UserEntity> userByEmail = jpaUserRepository.findByEmail(email);
+
+        return userByEmail.isEmpty();
     }
 }

@@ -16,7 +16,6 @@ public class UserController implements UserDetailsApi {
 
     CreateUserUseCase createUserUseCase;
 
-
     public UserController(CreateUserUseCase createUserUseCase){
         this.createUserUseCase = createUserUseCase;
     }

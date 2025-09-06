@@ -42,7 +42,7 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
 
         String userEmail = userRegistration.getEmail();
         emailValidator.validateEmail(userEmail);
-        Boolean userEmailIsAvailable = userRepository.findByEmail(userEmail).isEmpty();
+        Boolean userEmailIsAvailable = userRepository.findByEmail(userEmail);
 
         if(!userEmailIsAvailable) throw new InvalidEmailException(emailAlreadyUsedError);
         User newUser = UserMapper.toUser(userRegistration);
