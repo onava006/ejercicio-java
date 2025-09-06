@@ -3,9 +3,10 @@ package com.smartjob.ejerciciojava.infrastructure.adapters.output.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "users")
@@ -27,19 +28,15 @@ public class UserEntity {
 
     @Column(name = "created_at")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date createdAt;
-
-    @Column(name = "updated_at")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date updatedAt;
+    private LocalDateTime createdAt;
 
     @Column(name = "modified_at")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date modifiedAt;
+    private LocalDateTime modifiedAt;
 
     @Column(name = "last_login")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date lastLogin;
+    private LocalDateTime lastLogin;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PhoneEntity> phones = new ArrayList<>();
@@ -48,28 +45,9 @@ public class UserEntity {
     public UserEntity() {
     }
 
-    public UserEntity(String name, String email, String password) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.createdAt = new Date();
-        this.updatedAt = new Date();
-        this.modifiedAt = new Date();
-    }
-
-    @PrePersist
-    protected void onCreate() {
-        Date now = new Date();
-        createdAt = now;
-        updatedAt = now;
-        modifiedAt = now;
-    }
-
     @PreUpdate
     protected void onUpdate() {
-        Date now = new Date();
-        updatedAt = now;
-        modifiedAt = now;
+        modifiedAt = LocalDateTime.now();
     }
 
     public Long getId() {
@@ -104,35 +82,27 @@ public class UserEntity {
         this.password = password;
     }
 
-    public Date getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public Date getModifiedAt() {
+    public LocalDateTime getModifiedAt() {
         return modifiedAt;
     }
 
-    public void setModifiedAt(Date modifiedAt) {
+    public void setModifiedAt(LocalDateTime modifiedAt) {
         this.modifiedAt = modifiedAt;
     }
 
-    public Date getLastLogin() {
+    public LocalDateTime getLastLogin() {
         return lastLogin;
     }
 
-    public void setLastLogin(Date lastLogin) {
+    public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
     }
 
@@ -144,7 +114,6 @@ public class UserEntity {
         this.phones = phones;
     }
 
-    // Métodos de conveniencia para manejar la relación bidireccional
     public void addPhone(PhoneEntity phone) {
         phones.add(phone);
         phone.setUser(this);
@@ -162,7 +131,6 @@ public class UserEntity {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
                 ", modifiedAt=" + modifiedAt +
                 ", lastLogin=" + lastLogin +
                 '}';
@@ -175,7 +143,7 @@ public class UserEntity {
 
         UserEntity that = (UserEntity) o;
 
-        return id != null ? id.equals(that.id) : that.id == null;
+        return Objects.equals(id, that.id);
     }
 
     @Override

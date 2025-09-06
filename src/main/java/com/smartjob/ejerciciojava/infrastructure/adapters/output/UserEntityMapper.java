@@ -32,9 +32,9 @@ public class UserEntityMapper {
         }
 
         // Mapear fechas
-        user.setCreationDate(new Date(entity.getCreatedAt().getTime()));
-        user.setLastModificationDate(new Date(entity.getModifiedAt().getTime()));
-        user.setLastLogin(new Date(System.currentTimeMillis()));
+        user.setCreationDate(entity.getCreatedAt());
+        user.setLastModificationDate(entity.getModifiedAt());
+        user.setLastLogin(entity.getLastLogin());
 
 
         // Asumimos que si está creado, está activo
@@ -55,7 +55,6 @@ public class UserEntityMapper {
         return phone;
     }
 
-
     public static UserEntity toEntity(User user) {
         if (user == null) {
             return null;
@@ -75,10 +74,9 @@ public class UserEntityMapper {
             entity.setPhones(phoneEntities);
         }
 
-        entity.setCreatedAt(toDate(user.getCreationDate()));
-        entity.setModifiedAt(toDate(user.getLastModificationDate()));
-        entity.setUpdatedAt(toDate(user.getLastModificationDate()));
-        entity.setLastLogin(toDate(user.getLastLogin())); // opcional, si quieres inicializar
+        entity.setCreatedAt(user.getCreationDate());
+        entity.setModifiedAt(user.getLastModificationDate());
+        entity.setLastLogin(user.getLastLogin()); // opcional, si quieres inicializar
 
         return entity;
     }
@@ -93,11 +91,7 @@ public class UserEntityMapper {
         phoneEntity.setCountryCode(Integer.valueOf(phone.getCountryCode()));
         return phoneEntity;
     }
-
-    private static Date toDate(Date date) {
-        if (date == null) return null;
-        return new Date(date.getTime());
-    }
-
-
 }
+
+
+

@@ -54,9 +54,9 @@ public class UserMapper {
 
         response.setPhones(mapPhones(user.getPhones()));
 
-        response.setCreated(toLocalDateTime(user.getCreationDate()));
-        response.setModified(toLocalDateTime(user.getLastModificationDate()));
-        response.setLastLogin(toLocalDateTime(user.getLastModificationDate()));
+        response.setCreated(user.getCreationDate());
+        response.setModified(user.getLastModificationDate());
+        response.setLastLogin(user.getLastModificationDate());
 
         response.setToken(user.getPassword());
         response.setIsactive(user.isActive());
@@ -95,13 +95,8 @@ public class UserMapper {
                 .collect(Collectors.toList());
     }
 
-    private static LocalDateTime toLocalDateTime(java.util.Date date) {
-        if (date == null) {
-            return null;
-        }
-        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-    }
 }
+
 
 
 

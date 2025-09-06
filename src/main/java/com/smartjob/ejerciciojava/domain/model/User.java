@@ -1,6 +1,7 @@
 package com.smartjob.ejerciciojava.domain.model;
 
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class User {
@@ -10,12 +11,12 @@ public class User {
     private String email;
     private String password;
     private List<Phone> phones;
-    private Date creationDate;
-    private Date lastModificationDate;
+    private LocalDateTime creationDate;
+    private LocalDateTime lastModificationDate;
 
 
 
-    private Date lastLogin;
+    private LocalDateTime lastLogin;
     boolean isActive;
 
 
@@ -59,19 +60,19 @@ public void setId(Long id) {
         this.phones = phones;
     }
 
-    public Date getCreationDate() {
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
     }
 
-    public Date getLastModificationDate() {
+    public LocalDateTime getLastModificationDate() {
         return lastModificationDate;
     }
 
-    public void setLastModificationDate(Date lastModificationDate) {
+    public void setLastModificationDate(LocalDateTime lastModificationDate) {
         this.lastModificationDate = lastModificationDate;
     }
 
@@ -82,11 +83,11 @@ public void setId(Long id) {
     public void setActive(boolean active) {
         isActive = active;
     }
-    public Date getLastLogin() {
+    public LocalDateTime getLastLogin() {
         return lastLogin;
     }
 
-    public void setLastLogin(Date lastLogin) {
+    public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
     }
 }
