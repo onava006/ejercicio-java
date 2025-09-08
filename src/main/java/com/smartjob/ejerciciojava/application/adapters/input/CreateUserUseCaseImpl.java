@@ -10,14 +10,12 @@ import com.smartjob.ejerciciojava.domain.ports.input.UserService;
 import com.smartjob.ejerciciojava.domain.ports.output.UserRepository;
 import com.smartjob.ejerciciojava.infrastructure.adapters.input.rest.model.UserRegistrationRequest;
 import com.smartjob.ejerciciojava.infrastructure.adapters.input.rest.model.UserRegistrationResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CreateUserUseCaseImpl implements CreateUserUseCase {
 
-    @Autowired
     UserEmailValidator emailValidator;
 
     @Value("${com.smartjob.ejerciciojava.exception.error001}")
@@ -30,10 +28,11 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
    // UserPhoneRepository userPhoneRepository;
     TokenProvider tokenProvider;
 
-    public CreateUserUseCaseImpl(UserService userService, UserRepository userRepository,  TokenProvider tokenProvider) {
+    public CreateUserUseCaseImpl(UserService userService, UserRepository userRepository,  TokenProvider tokenProvider,UserEmailValidator emailValidator ) {
         this.userService = userService;
         this.userRepository = userRepository;
         this.tokenProvider = tokenProvider;
+        this.emailValidator = emailValidator;
        // this.userPhoneRepository = userPhoneRepository; , UserPhoneRepository userPhoneRepository
     }
 

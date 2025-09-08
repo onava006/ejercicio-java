@@ -16,12 +16,11 @@ public class UserEmailValidator {
     @Value("${com.smartjob.ejerciciojava.exception.error002}")
     String invalidEmailError;
 
-    public  boolean validateEmail(String emailStr) throws InvalidEmailException {
+    public  void validateEmail(String emailStr) throws InvalidEmailException {
 
         Pattern emailRegexPattern = Pattern.compile(emailRegex, Pattern.CASE_INSENSITIVE);
         Matcher matcher = emailRegexPattern.matcher(emailStr);
         boolean matchesPattern = matcher.matches();
         if(!matchesPattern) throw new InvalidEmailException(invalidEmailError);
-        return matcher.matches();
     }
 }

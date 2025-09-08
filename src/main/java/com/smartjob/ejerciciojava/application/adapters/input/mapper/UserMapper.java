@@ -75,6 +75,15 @@ public class UserMapper {
         return mapped;
     }
 
+    private static List<ContactPhone> mapPhones(List<Phone> phones) {
+        if (phones == null) {
+            return null;
+        }
+        return phones.stream()
+                .map(phone -> mapResponsePhone(phone))
+                .collect(Collectors.toList());
+    }
+
     private static ContactPhone mapResponsePhone(Phone phone) {
         if (phone == null) {
             return null;
@@ -86,14 +95,9 @@ public class UserMapper {
         return mapped;
     }
 
-    private static List<ContactPhone> mapPhones(List<Phone> phones) {
-        if (phones == null) {
-            return null;
-        }
-        return phones.stream()
-                .map(phone -> mapResponsePhone(phone))
-                .collect(Collectors.toList());
-    }
+
+
+
 
 }
 
