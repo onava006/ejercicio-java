@@ -3,10 +3,11 @@ package com.smartjob.ejerciciojava.domain.model;
 import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 public class User {
 
-    private Long id;
+    private UUID id;
     private String name;
     private String email;
     private String password;
@@ -20,11 +21,11 @@ public class User {
     boolean isActive;
 
 
-public Long getId() {
+public UUID getId() {
     return id;
 }
 
-public void setId(Long id) {
+public void setId(UUID id) {
     this.id = id;
 }
 
