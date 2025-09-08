@@ -47,7 +47,7 @@ public class UserMapper {
 
         UserRegistrationResponse response = new UserRegistrationResponse();
 
-        response.setId(user.getId() != null ? user.getId().toString() : null);
+        response.setId(user.getId());
 
         response.setName(user.getName());
         response.setEmail(user.getEmail());

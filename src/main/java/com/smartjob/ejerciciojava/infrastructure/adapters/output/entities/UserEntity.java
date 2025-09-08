@@ -7,15 +7,16 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 @Entity
 @Table(name = "users")
 public class UserEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
-    private Long id;
+    @GeneratedValue
+    @Column(updatable = false, nullable = false, name = "user_id")
+    private UUID id;
 
     @Column(name = "name", nullable = false, length = 100)
     private String name;
@@ -50,11 +51,11 @@ public class UserEntity {
         modifiedAt = LocalDateTime.now();
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
